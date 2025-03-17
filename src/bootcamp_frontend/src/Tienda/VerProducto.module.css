@@ -1,0 +1,137 @@
+/* src/components/VerProducto.module.css */
+.verProductoContainer {
+    display: flex;
+    flex-direction: column;
+    /* Cambiar a columna para que el título esté arriba */
+    align-items: center;
+    /* Centrar el contenido */
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+.verProducto {
+    display: flex;
+    flex-direction: row;
+    /* Mantener la flexión en filas */
+    max-width: 1200px;
+    width: 100%;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    gap: 20px;
+    /* Espaciado entre columnas */
+}
+
+.avatar {
+    display: flex;
+    flex-direction: column;
+    /* Apilar el avatar y la imagen */
+    align-items: center;
+    /* Centrar el contenido */
+    max-width: 400px;
+    /* Limitar el ancho del contenedor del avatar */
+}
+
+.imagen {
+    max-width: 100%;
+    /* Mantener la imagen responsiva */
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border: 1px solid #e1e1e1;
+    /* Borde sutil alrededor de la imagen */
+}
+
+.titulo {
+    font-size: 2em;
+    margin: 10px 0;
+    color: #333;
+    /* Color del texto */
+    text-align: center;
+    /* Centrar el título */
+}
+
+.productoInfo {
+    flex: 1;
+    text-align: left;
+}
+
+.descripcion {
+    font-size: 1.1em;
+    color: #555;
+    margin: 10px 0;
+}
+
+.marca,
+.categoria,
+.precio,
+.promedioPuntuacion {
+    font-size: 1em;
+    color: #444;
+    margin: 5px 0;
+}
+
+.precioValor {
+    font-weight: bold;
+    color: #e74c3c;
+    /* Color destacado para el precio */
+}
+
+.botones {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+    /* Espaciado entre botones */
+}
+
+.botonAgregar,
+.botonArmario {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    /* Transiciones suaves */
+}
+
+.botonAgregar:hover,
+.botonArmario:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+    /* Efecto de elevación al pasar el ratón */
+}
+
+.comentarios {
+    margin-top: 20px;
+}
+
+.comentario {
+    background-color: #f1f1f1;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    border-left: 4px solid #007bff;
+    /* Borde izquierdo para destacar comentario */
+}
+
+.formulario {
+    margin-top: 20px;
+    /* Espacio entre información y formulario */
+}
+
+.formGroup {
+    margin-bottom: 15px;
+    /* Espaciado entre grupos */
+}
+
+.select {
+    width: 100%;
+    /* Ancho completo del select */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+}

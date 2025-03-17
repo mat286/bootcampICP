@@ -1,0 +1,52 @@
+/* InformacionAdicional.module.css */
+.informacionAdicional {
+    padding: 20px;
+    background-color: #f9f9f9;
+    /* Color de fondo ligero */
+    border: 1px solid #ddd;
+    /* Borde suave */
+    border-radius: 8px;
+    /* Bordes redondeados */
+    margin-top: 20px;
+    /* Espacio superior */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    /* Sombra sutil */
+}
+
+.informacionAdicional h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    color: #333;
+    text-align: center;
+    /* Centrado del título */
+}
+
+.informacionAdicional ul {
+    list-style-type: none;
+    /* Quitar viñetas por defecto */
+    padding: 0;
+    /* Sin padding */
+}
+
+.informacionAdicional li {
+    font-size: 1.2rem;
+    padding: 10px 0;
+    /* Espaciado entre los elementos de la lista */
+    display: flex;
+    /* Para alinear iconos y texto */
+    align-items: center;
+    /* Alinear verticalmente */
+}
+
+.informacionAdicional li::before {
+    content: '';
+    /* Espacio para un icono */
+    display: inline-block;
+    /* Bloque en línea para poder ajustar el tamaño */
+    width: 30px;
+    /* Ancho del icono */
+    height: 30px;
+    /* Alto del icono */
+    margin-right: 10px;
+    /* Espacio entre icono y texto */
+}

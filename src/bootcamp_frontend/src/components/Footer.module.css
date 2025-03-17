@@ -1,0 +1,45 @@
+/* src/components/Footer.module.css */
+.footer {
+    background-color: #f8f9fa;
+    padding: 20px;
+    text-align: center;
+    border-top: 1px solid #ddd;
+}
+
+.contenido {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.informacion {
+    margin-bottom: 15px;
+}
+
+.enlaces {
+    margin-bottom: 15px;
+}
+
+.enlace {
+    margin: 0 10px;
+    color: #007bff;
+    text-decoration: none;
+}
+
+.enlace:hover {
+    text-decoration: underline;
+}
+
+.redesSociales {
+    margin-top: 10px;
+}
+
+.icono {
+    margin: 0 10px;
+    color: #007bff;
+    text-decoration: none;
+}
+
+.icono:hover {
+    text-decoration: underline;
+}

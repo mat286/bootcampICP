@@ -1,0 +1,108 @@
+/* src/Cart.css */
+
+/* Contenedor del carrito */
+.cart-container {
+    width: 100%;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.cart-container h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.8rem;
+    color: #333;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+/* Estilos para cada producto en el carrito */
+.cart-item {
+    display: flex;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Imagen del producto en el carrito */
+.cart-item-image {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-right: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Detalles del producto */
+.cart-item-details {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cart-item-details h3 {
+    font-size: 1.2rem;
+    color: #555;
+    margin: 0;
+}
+
+/* Animación en botones */
+.cart-item-details button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.cart-item-details button:hover {
+    background-color: #2980b9;
+    transform: scale(1.05);
+    /* Agrandar ligeramente el botón al pasar el mouse */
+}
+
+/* Espaciado extra entre productos */
+.cart-item+.cart-item {
+    margin-top: 20px;
+    /* Aumentar el margen entre productos */
+}
+
+/* Barra divisoria */
+.divider {
+    width: 2px;
+    height: 100%;
+    background-color: #ddd;
+    margin: 0 20px;
+}
+
+/* Responsividad: adaptando el carrito a pantallas más pequeñas */
+@media (max-width: 768px) {
+    .cart-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .cart-item-image {
+        width: 100%;
+        height: auto;
+        margin-bottom: 10px;
+    }
+
+    .cart-item-details {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .cart-item-details button {
+        margin-top: 10px;
+        width: 100%;
+    }
+}
