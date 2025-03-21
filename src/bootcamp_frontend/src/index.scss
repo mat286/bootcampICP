@@ -1,59 +1,62 @@
 /* src/App.css */
 
-/* Estilos generales para la página */
 .App-body {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   padding: 20px;
-  background-color: #fafafa;
+  background-color: #0d1117; 
   min-height: 100vh;
+  color: #fff;
+}
+.App {
+  background-color: #0d1117;
+  color: #fff;
 }
 
-/* Estilos para el filtro (Carrito) y el armario */
 .filters,
 .product-list {
   width: 20%;
-  background-color: #f1f1f1;
+  background-color: #161b22; 
   padding: 15px;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease-in-out;
+  box-shadow: 0 4px 8px rgba(0, 255, 255, 0.1);
+  border: 1px solid #0ff; 
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
 .filters:hover,
 .product-list:hover {
   transform: scale(1.02);
-  /* Le da un efecto de hover suave */
+  box-shadow: 0 4px 12px rgba(0, 255, 255, 0.4);
 }
 
-/* Tipografía en los laterales */
 .filters h2,
 .product-list h2 {
   font-family: 'Poppins', sans-serif;
   font-size: 1.4rem;
   margin-bottom: 15px;
-  color: #333;
+  color: #0ff; 
 }
 
 .filters p,
 .product-list p {
   font-family: 'Roboto', sans-serif;
-  color: #555;
+  color: #c8d1d9; 
   line-height: 1.5;
 }
 
-/* Estilos para el contenedor del avatar */
 .avatar-container {
   width: 55%;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #fff;
+  background-color: #161b22;
   border-radius: 8px;
   padding: 30px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 255, 255, 0.2);
   position: relative;
+  border: 1px solid #0ff;
 }
 
 .avatar-container:before {
@@ -62,14 +65,13 @@
   top: -30px;
   font-size: 1.5rem;
   font-weight: bold;
-  color: #3498db;
-  background-color: #fff;
+  color: #0ff;
+  background-color: #0d1117;
   padding: 5px 10px;
   border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 6px rgba(0, 255, 255, 0.2);
 }
 
-/* Estilos para el canvas del avatar */
 .avatar-container canvas {
   max-width: 100%;
   height: auto;
@@ -78,24 +80,20 @@
 
 /* Estilos responsivos */
 @media (max-width: 1200px) {
-
   .filters,
   .product-list {
     width: 25%;
   }
-
   .avatar-container {
     width: 50%;
   }
 }
 
 @media (max-width: 992px) {
-
   .filters,
   .product-list {
     width: 30%;
   }
-
   .avatar-container {
     width: 45%;
   }
@@ -106,18 +104,15 @@
     flex-direction: column;
     align-items: center;
   }
-
   .filters,
   .product-list {
     width: 90%;
     margin-bottom: 20px;
   }
-
   .avatar-container {
     width: 100%;
     padding: 20px;
   }
-
   .avatar-container:before {
     top: -20px;
     font-size: 1.3rem;

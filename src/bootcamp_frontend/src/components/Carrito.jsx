@@ -1,97 +1,104 @@
 import React, { useState } from 'react';
 import styles from './Carrito.module.css';
+import { FaTrashAlt } from 'react-icons/fa';
 
 function Carrito({ carrito, eliminarProducto, actualizarCantidad }) {
-    const [formapago, setFormaPago] = useState('tarjeta');
-    const [datosEnvio, setDatosEnvio] = useState({
-        direccion: '',
-        ciudad: '',
-        codigoPostal: '',
-    });
+    const [walletAddress, setWalletAddress] = useState('');
+    const [isConnecting, setIsConnecting] = useState(false);
+    const [errorMessage, setErrorMessage] = useState('');
+    const [formapago, setFormaPago] = useState('eth');
 
-    const total = carrito.reduce((acc, producto) => acc + producto.precio * producto.cantidad, 0);
-    console.log(carrito, total)
+    const total = carrito.reduce((acc, producto) => {
+        return acc + Number(producto.precio) * Number(producto.cantidad);
+    }, 0);
+
+
+    // Función para conectar la wallet utilizando la API de Ethereum (ej. MetaMask)
+    const conectarWallet = async () => {
+        if (window.ethereum) {
+            try {
+                setIsConnecting(true);
+                const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+                setWalletAddress(accounts[0]);
+                setErrorMessage('');
+            } catch (error) {
+                setErrorMessage('Error al conectar con la wallet');
+            } finally {
+                setIsConnecting(false);
+            }
+        } else {
+            setErrorMessage('No se encontró una wallet compatible');
+        }
+    };
 
     const handlePagoChange = (e) => {
         setFormaPago(e.target.value);
     };
 
-    const handleInputChange = (e) => {
-        const { name, value } = e.target;
-        setDatosEnvio((prevDatos) => ({
-            ...prevDatos,
-            [name]: value,
-        }));
-    };
-
     return (
         <div className={styles.carrito}>
-            <h2>Carrito de Compras</h2>
+            <h2>🛒 Carrito Cripto</h2>
+
             <div className={styles.listaProductos}>
-                <h3>Productos en el carrito</h3>
-                <ul>
-                    {carrito.map((producto) => (
-                        <li key={producto.id} className={styles.producto}>
-                            <span className={styles.nombre}>{producto.nombre}</span>
-                            <span className={styles.precio}>${producto.precio.toFixed(2)}</span>
-                            <span className={styles.cantidad}>
-                                x {producto.cantidad}
-                                <button onClick={() => actualizarCantidad(producto.id, producto.cantidad + 1)}>+</button>
-                                <button onClick={() => actualizarCantidad(producto.id, producto.cantidad - 1)} disabled={producto.cantidad === 1}>-</button>
-                            </span>
-                            <span className={styles.subtotal}>Subtotal: ${(producto.precio * producto.cantidad).toFixed(2)}</span>
-                            <button onClick={() => eliminarProducto(producto.id)}>Eliminar</button>
-                        </li>
-                    ))}
-                </ul>
+                {carrito.length > 0 ? (
+                    carrito.map((producto) => (
+                        <div key={producto.id} className={styles.producto}>
+                            {producto.imagen && (
+                                <img src={producto.imagen} alt={producto.nombre} className={styles.imagen} />
+                            )}
+                            <div className={styles.detalles}>
+                                <h3>{producto.nombre}</h3>
+                                <p className={styles.precio}>Ξ {Number(producto.precio).toFixed(4)} ETH</p>
+                                <div className={styles.cantidad}>
+                                    <button
+                                        onClick={() => actualizarCantidad(producto.id, Number(producto.cantidad) - 1)}
+                                        disabled={Number(producto.cantidad) === 1}
+                                    >
+                                        -
+                                    </button>
+                                    <span>{Number(producto.cantidad)}</span>
+                                    <button onClick={() => actualizarCantidad(producto.id, Number(producto.cantidad) + 1)}>+</button>
+                                </div>
+                                <p className={styles.subtotal}>
+                                    Subtotal: Ξ {(Number(producto.precio) * Number(producto.cantidad)).toFixed(4)} ETH
+                                </p>
+                            </div>
+                            <button className={styles.eliminar} onClick={() => eliminarProducto(producto.id)}>
+                                <FaTrashAlt />
+                            </button>
+                        </div>
+                    ))
+                ) : (
+                    <p className={styles.vacio}>Tu carrito está vacío 🛸</p>
+                )}
                 <div className={styles.total}>
-                    <h3>Total: ${total.toFixed(2)}</h3>
+                    <h3>Total: Ξ {total.toFixed(4)} ETH</h3>
                 </div>
             </div>
+
             <div className={styles.formasPago}>
-                <h3>Forma de Pago</h3>
+                <h3>💰 Pagar con</h3>
                 <select value={formapago} onChange={handlePagoChange}>
-                    <option value="tarjeta">Tarjeta de Crédito/Débito</option>
-                    <option value="paypal">PayPal</option>
-                    <option value="transferencia">Transferencia Bancaria</option>
+                    <option value="eth">Ethereum (ETH)</option>
+                    <option value="btc">Bitcoin (BTC)</option>
+                    <option value="usdt">USDT (Tether)</option>
                 </select>
             </div>
-            <div className={styles.datosEnvio}>
-                <h3>Datos de Envío</h3>
-                <form>
-                    <label>
-                        Dirección:
-                        <input
-                            type="text"
-                            name="direccion"
-                            value={datosEnvio.direccion}
-                            onChange={handleInputChange}
-                            required
-                        />
-                    </label>
-                    <label>
-                        Ciudad:
-                        <input
-                            type="text"
-                            name="ciudad"
-                            value={datosEnvio.ciudad}
-                            onChange={handleInputChange}
-                            required
-                        />
-                    </label>
-                    <label>
-                        Código Postal:
-                        <input
-                            type="text"
-                            name="codigoPostal"
-                            value={datosEnvio.codigoPostal}
-                            onChange={handleInputChange}
-                            required
-                        />
-                    </label>
-                </form>
+
+            <div className={styles.conectarWallet}>
+                {walletAddress ? (
+                    <p className={styles.walletInfo}>Wallet conectada: {walletAddress}</p>
+                ) : (
+                    <button onClick={conectarWallet} disabled={isConnecting} className={styles.buttonWallet}>
+                        {isConnecting ? 'Conectando...' : 'Conectar Wallet'}
+                    </button>
+                )}
+                {errorMessage && <p className={styles.error}>{errorMessage}</p>}
             </div>
-            <button className={styles.button}>Finalizar Compra</button>
+
+            <button className={styles.buttonPago} disabled={!walletAddress || carrito.length === 0}>
+                💳 Pagar con Wallet
+            </button>
         </div>
     );
 }

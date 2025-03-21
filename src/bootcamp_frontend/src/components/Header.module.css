@@ -1,59 +1,44 @@
-/* Header.module.css */
 .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 15px 30px;
-    /* Espaciado alrededor */
-    background-color: #007bff;
-    /* Fondo azul */
-    color: #ffffff;
-    /* Texto blanco para contraste */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    /* Sombra sutil */
+    background-color: #161b22;
+    /* Fondo oscuro */
+    color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 255, 255, 0.2);
 }
 
 .logoLink {
     font-size: 1.8rem;
-    /* Tamaño del logo */
     font-weight: bold;
-    /* Texto en negrita */
-    color: #ffffff;
-    /* Color blanco para el logo */
+    color: #0ff;
+    /* Color neón */
     text-decoration: none;
-    /* Sin subrayado */
+    font-family: 'Poppins', sans-serif;
 }
 
 .navigation {
     display: flex;
     gap: 20px;
-    /* Espacio entre los enlaces */
 }
 
 .iconLink {
     display: flex;
     align-items: center;
-    /* Alinear icono y texto */
-    color: #ffffff;
-    /* Color blanco para los enlaces */
+    color: #0ff;
     text-decoration: none;
-    /* Sin subrayado */
     transition: color 0.3s, transform 0.3s;
-    /* Transiciones suaves */
+    font-family: 'Roboto', sans-serif;
 }
 
 .iconLink:hover {
-    color: #ffcc00;
-    /* Color amarillo al pasar el ratón */
+    color: #00d4ff;
     transform: scale(1.05);
-    /* Efecto de aumento */
 }
 
 .icon {
     width: 24px;
-    /* Tamaño del icono */
     height: 24px;
-    /* Tamaño del icono */
     margin-right: 8px;
-    /* Espacio entre el icono y el texto */
 }

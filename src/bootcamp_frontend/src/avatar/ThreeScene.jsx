@@ -11,7 +11,6 @@ extend({ OrbitControls });
 function Model({ url, position, scale, mov, color }) {
     const gltf = useLoader(GLTFLoader, url);
     const modelRef = useRef();
-    console.log(url)
 
     useEffect(() => {
         if (modelRef.current) {
@@ -79,7 +78,7 @@ function ZoomControls() {
 
 function ThreeScene({ clothingModels, mov, orbit, color }) {
     return (
-        <Canvas camera={{ position: [1, 4, 5.5] }} style={{ height: '900px', width: '100%' }}>
+        <Canvas camera={{ position: [0, 4, 5.5] }} style={{ height: '600px', width: '100%' }}>
             <pointLight position={[0, 0, 0]} />
             <hemisphereLight skyColor={0xffffbb} groundColor={0x080820} intensity={0.9} position={[0, 50, 0]} />
             <pointLight position={[5, 5, 5]} intensity={0.8} />

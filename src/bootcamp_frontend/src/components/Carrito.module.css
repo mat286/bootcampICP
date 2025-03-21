@@ -1,90 +1,173 @@
-/* src/components/Carrito.module.css */
 .carrito {
+    background-color: #0d1117;
+    color: #fff;
     padding: 20px;
-    max-width: 800px;
-    margin: 0 auto;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+.carrito h2 {
+    text-align: center;
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #0ff;
 }
 
 .listaProductos {
-    margin-bottom: 20px;
+    margin-top: 20px;
 }
 
-.listaProductos h3 {
-    margin-bottom: 10px;
-}
-
-.listaProductos ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.listaProductos li {
+.producto {
     display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
+    align-items: center;
+    background: rgba(0, 255, 255, 0.1);
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 8px;
+    transition: all 0.3s;
 }
 
-.nombre {
-    flex: 2;
+.producto:hover {
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
 }
 
-.precio {
-    flex: 1;
+.imagen {
+    width: 80px;
+    height: 80px;
+    border-radius: 5px;
+    margin-right: 15px;
+}
+
+.detalles {
+    flex-grow: 1;
+}
+
+.precio,
+.subtotal {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #0ff;
 }
 
 .cantidad {
-    flex: 1;
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
 }
 
-.subtotal {
-    flex: 1;
-    font-weight: bold;
+.cantidad button {
+    background-color: transparent;
+    color: white;
+    border: 1px solid #0ff;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 1.2em;
+    transition: all 0.3s;
+}
+
+.cantidad button:hover {
+    background-color: #0ff;
+    color: #000;
+}
+
+.eliminar {
+    background: transparent;
+    color: red;
+    font-size: 1.5em;
+    cursor: pointer;
+    border: none;
+}
+
+.eliminar:hover {
+    color: #ff4444;
 }
 
 .total {
-    margin-top: 20px;
-    font-size: 1.2em;
+    text-align: center;
+    font-size: 1.5em;
     font-weight: bold;
+    margin-top: 20px;
 }
 
-.formasPago,
-.datosEnvio {
-    margin-bottom: 20px;
+.formasPago {
+    text-align: center;
+    margin-top: 20px;
 }
 
 .formasPago select {
-    padding: 5px;
-    font-size: 1em;
-}
-
-.datosEnvio form {
-    display: flex;
-    flex-direction: column;
-}
-
-.datosEnvio label {
-    margin-bottom: 10px;
-}
-
-.datosEnvio input {
-    padding: 5px;
-    font-size: 1em;
     width: 100%;
+    padding: 10px;
+    font-size: 1.1em;
+    border-radius: 5px;
+    border: 1px solid #0ff;
+    background: #222;
+    color: #0ff;
+    margin-top: 10px;
 }
 
-.button {
-    padding: 10px 20px;
-    font-size: 1em;
-    background-color: #007bff;
-    color: #fff;
+.formasPago select:focus {
+    outline: none;
+    border-color: #00ffff;
+}
+
+.conectarWallet {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.buttonWallet {
+    background: linear-gradient(45deg, #0ff, #00d4ff);
+    color: #000;
+    font-size: 1.1em;
+    font-weight: bold;
+    padding: 10px;
+    width: 100%;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    transition: all 0.3s;
 }
 
-.button:hover {
-    background-color: #0056b3;
+.buttonWallet:hover {
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.8);
+    transform: scale(1.05);
+}
+
+.walletInfo {
+    font-size: 0.9em;
+    color: #0ff;
+    margin-top: 10px;
+}
+
+.error {
+    color: #ff4444;
+    margin-top: 10px;
+}
+
+.buttonPago {
+    background: linear-gradient(45deg, #0ff, #00d4ff);
+    color: #000;
+    font-size: 1.2em;
+    font-weight: bold;
+    padding: 10px;
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.buttonPago:hover {
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.8);
+    transform: scale(1.05);
+}
+
+.vacio {
+    text-align: center;
+    font-size: 1.2em;
+    color: #ccc;
+    margin-top: 20px;
 }

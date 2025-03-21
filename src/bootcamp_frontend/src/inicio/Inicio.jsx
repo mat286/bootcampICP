@@ -12,7 +12,7 @@ const Inicio = (/* { handleProduct } */) => {
 
 
             <div className={styles.section}>
-                <h2>Más Vendidos</h2>
+                {/* <h2>Más Vendidos</h2> */}
                 <MasVendidos /* handleProduct={handleProduct} *//>
             </div>
 

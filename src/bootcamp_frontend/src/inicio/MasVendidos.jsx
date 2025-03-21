@@ -31,7 +31,6 @@ const MasVendidos = ({ handleProduct }) => {
       </div>
     </div>
   );
-
 };
 
 export default MasVendidos;

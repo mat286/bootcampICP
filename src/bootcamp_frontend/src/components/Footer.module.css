@@ -1,9 +1,11 @@
-/* src/components/Footer.module.css */
 .footer {
-    background-color: #f8f9fa;
+    background-color: #161b22;
+    /* Fondo oscuro */
     padding: 20px;
     text-align: center;
-    border-top: 1px solid #ddd;
+    border-top: 1px solid #0ff;
+    /* Borde en tono neón */
+    color: #fff;
 }
 
 .contenido {
@@ -14,6 +16,8 @@
 
 .informacion {
     margin-bottom: 15px;
+    font-family: 'Poppins', sans-serif;
+    color: #0ff;
 }
 
 .enlaces {
@@ -22,12 +26,15 @@
 
 .enlace {
     margin: 0 10px;
-    color: #007bff;
+    color: #0ff;
     text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+    transition: color 0.3s;
 }
 
 .enlace:hover {
     text-decoration: underline;
+    color: #00d4ff;
 }
 
 .redesSociales {
@@ -36,10 +43,13 @@
 
 .icono {
     margin: 0 10px;
-    color: #007bff;
+    color: #0ff;
     text-decoration: none;
+    font-size: 1.5rem;
+    transition: color 0.3s;
 }
 
 .icono:hover {
     text-decoration: underline;
+    color: #00d4ff;
 }
